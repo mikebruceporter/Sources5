@@ -1,0 +1,78 @@
+﻿@model TaskFormViewModel
+@* 
+    This form, ProjectTaskForm, is used for both Create and Edit of tasks.
+    Select the priorities:
+    https://stackoverflow.com/questions/34624034/select-tag-helper-in-asp-net-core-mvc
+*@
+@{
+    if (@Model.task.Id == 0)
+       { ViewBag.Do = "Create New Task for " + Model.project.Name; }
+    else { ViewBag.Do = "Edit Task for " + Model.project.Name; }
+}
+<div class="bg-primary m-1 p-1 text-white">
+    <h4>@ViewBag.Do</h4>
+</div>
+<div class="row">
+    <div class="col">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <form asp-controller="ProjectTask" asp-action="Save" method="post">
+            <div class="form-group">
+                <label asp-for="task.Name"></label>
+                <input asp-for="task.Name" class="form-control form-control-sm" type="text" maxlength="100"
+                       placeholder="please enter a task name" />
+                <div>
+                    <span asp-validation-for="task.Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="task.Description"></label>
+                <textarea asp-for="task.Description" class="form-control text-wrap:normal form-control-sm" type="text"
+                          placeholder="please enter a description of at most 1000 characters" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="task.Methodology"></label>
+                <input asp-for="task.Methodology" class="form-control form-control-sm" />
+            </div>
+            <div class="form-group">
+                <label asp-for="task.PriorityId">Priority</label>
+                <div>
+                    <select asp-for="task.PriorityId" class="form-control-sm" asp-items="@(new SelectList(Model.priorities, "Number", "Name"))">
+                        <option>Please select a priority</option>
+                    </select>
+                </div>
+                <div>
+                    <span asp-validation-for="task.PriorityId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="task.ProjectId" hidden></label>
+                <input asp-for="task.ProjectId" class="form-control" hidden />
+            </div>
+            <div class="form-group">
+                <label asp-for="task.Id" hidden></label>
+                <input asp-for="task.Id" class="form-control" hidden />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save</button>
+
+        </form>
+        <form asp-controller="ProjectTask" asp-action="Cancel" method="post">
+            <div class="form-group">
+                <label asp-for="task.ProjectId" hidden></label>
+                <input asp-for="task.ProjectId" class="form-control" name="Id" hidden />
+            </div>
+            <button type="submit" class="btn btn-secondary">Cancel</button>
+        </form>
+    </div>
+    <div class="col">
+        <p></p>
+        <p>You can create as many tasks as you like for the @Model.project.Name project.</p>
+        <hr />
+        <h5>@Model.project.Name</h5>
+        <p>Start Date: @Model.project.StartDate.ToShortDateString()</p>
+        <p>End Date: @Model.project.EndDate.ToShortDateString()</p>
+        <p>Description: @Model.project.Description</p>
+    </div>
+</div>
+<p>ProjectTaskForm.cshtml</p>
+

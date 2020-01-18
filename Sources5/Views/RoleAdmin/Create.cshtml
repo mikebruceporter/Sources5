@@ -1,0 +1,20 @@
+﻿@model string
+<div class="bg-primary m-1 p-1"><h4>Create Role</h4></div>
+<div asp-validation-summary="All" class="text-danger"></div>
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="name"></label>
+        <input name="name" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+@*
+Create Role:
+If you look at the Create method that accepts POST requests in Listing "Creating and Deleting Roles"
+on page 929, you will see that we have applied the Required validation attribute directly to the parameter:
+[HttpPost]
+public async Task<IActionResult> Create([Required]string name)
+This has the same effect as applying the attribute in a model class and allows us to take advantage
+of the built-in model validation process.
+*@

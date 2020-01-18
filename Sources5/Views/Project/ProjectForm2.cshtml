@@ -1,0 +1,71 @@
+﻿@model Project
+@{
+    if (@Model.Id == 0) { ViewBag.Do = "Create New Project"; ViewData["Title"] = "Create New Project"; }
+    else { ViewBag.Do = "Edit Project " + Model.Name; ViewData["Title"] = "Edit Project " + Model.Name; }
+}
+<div class="bg-primary m-1 p-1 text-white">
+    <h4>@ViewBag.Do</h4>
+</div>
+<p>ProjectForm2.cshtml</p>
+<div class="project-form-container">
+    <div class="project-form-item-1">
+        <div asp-validation-summary=" All" class="text-danger"></div>
+        <form asp-controller="Project" asp-action="Save" method="post">
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control form-control-sm" type="text" maxlength="100" data-toggle="tooltip"
+                       title="Enter a project name" placeholder="please enter a name of at most 100 characters" />
+                <div>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description" class="form-control text-wrap:normal form-control-sm" type="text"
+                          placeholder="please enter a description of at most 2000 characters" rows="3"></textarea>
+                <div>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDate"></label>
+                <input asp-for="StartDate" class="form-control form-control-sm" />
+                <div><span asp-validation-for="StartDate" class="text-danger"></span></div>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate"></label>
+                <input asp-for="EndDate" class="form-control form-control-sm" />
+                <div><span asp-validation-for="EndDate" class="text-danger"></span></div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Id" hidden></label>
+                <input asp-for="Id" class="form-control" hidden />
+            </div>
+            <div class="form-group">
+                <label asp-for="UserInfoId" hidden></label>
+                <input asp-for="UserInfoId" class="form-control" hidden />
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a asp-controller="Project" asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+    <div class="project-form-item-2">
+        <p>Please fill out the form.</p>
+    </div>
+</div>
+<div class="project-form-container">
+    <div class="project-form-item-1">
+        <p>one</p>
+    </div>
+    <div class="project-form-item-2">
+        <p>two</p>
+    </div>
+</div>
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+<!-- The "row" and "col" classes are Bootstrap.
+     What about Flexbox?
+-->

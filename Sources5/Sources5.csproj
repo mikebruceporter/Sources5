@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <UserSecretsId>aspnet-Sources5-987919E9-C50B-42DA-A143-1EF413AA1DC9</UserSecretsId>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20190924182437_AddRelationshipTaskToPriorityId.cs" />
+    <Compile Remove="Data\Migrations\20190924182437_AddRelationshipTaskToPriorityId.Designer.cs" />
+    <Compile Remove="Data\Migrations\20190924183753_AddTaskLinkToPriority.cs" />
+    <Compile Remove="Data\Migrations\20190924183753_AddTaskLinkToPriority.Designer.cs" />
+    <Compile Remove="Data\Migrations\20190925173732_AddLinkFromProjectTasksToPriorities.cs" />
+    <Compile Remove="Data\Migrations\20190925173732_AddLinkFromProjectTasksToPriorities.Designer.cs" />
+    <Compile Remove="Data\Migrations\20190925212111_PopulatePriorities.cs" />
+    <Compile Remove="Data\Migrations\20190925212111_PopulatePriorities.Designer.cs" />
+    <Compile Remove="Data\Migrations\20190925213100_PopulatePrioritiesTable.cs" />
+    <Compile Remove="Data\Migrations\20190925213100_PopulatePrioritiesTable.Designer.cs" />
+    <Compile Remove="Data\Migrations\20190925214852_AddNavigPropPrioritiesToProjectTasks.cs" />
+    <Compile Remove="Data\Migrations\20190925214852_AddNavigPropPrioritiesToProjectTasks.Designer.cs" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.3" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4" PrivateAssets="All" />
+    <PackageReference Include="Moment.js" Version="2.24.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
+    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.2" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="EntityConfigurations\" />
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,22 @@
+﻿<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container">
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SampleWebsiteCompany</a>
+
+        <ul class="navbar-nav">
+            <li><a class="nav-item nav-link text-dark" asp-controller="Home" asp-action="About">About</a></li>
+            <li><a class="nav-item nav-link text-dark" asp-controller="Home" asp-action="Contact">Contact</a></li>
+            <li><a class="nav-item nav-link text-dark" asp-controller="UserInfo" asp-action="Index">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Profile</a></li>
+            <li><a class="nav-item nav-link text-dark" asp-controller="Project" asp-action="Index">Projects</a></li>
+        </ul>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+            @* <partial name="_LoginPartial" />   Requires ASP.NET Core 2.1 or later.   *@
+            @Html.Partial("_LoginPartial")
+            <ul class="navbar-nav flex-grow-1"></ul>
+        </div>
+    </div>
+</nav>
+

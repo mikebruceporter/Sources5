@@ -1,0 +1,51 @@
+﻿@model UserInfoFormViewModel
+@{ 
+    if(Model.userinfo.Id == 0) { ViewBag.Do = "Create New Profile"; }
+    else { ViewBag.Do = "Edit Your Profile"; }
+}
+<div class="container">
+    <div class="row">
+        <h4>@ViewBag.Do</h4>
+    </div>
+    <p>UserInfoForm.cshtml under Views/UserInfo</p>
+    <div class="row">
+        <div class="col">
+            <form asp-controller="UserInfo" asp-action="Save" method="post">
+                <div asp-validation-summary=" All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="userinfo.FirstName"></label>
+                    <input asp-for="userinfo.FirstName" class="form-control" />
+                    <div><span asp-validation-for="userinfo.FirstName" class="text-danger"></span></div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="userinfo.LastName"></label>
+                    <input asp-for="userinfo.LastName" class="form-control" />
+                    <div><span asp-validation-for="userinfo.LastName" class="text-danger"></span></div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="userinfo.SIN"></label>
+                    <input asp-for="userinfo.SIN" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="userinfo.CountryId">Country</label>
+                    <div>
+                        <select asp-for="userinfo.CountryId" class="form-control-sm" asp-items="@(new SelectList(Model.countries, "Id", "Name"))">
+                            <option>Please select your country</option>
+                        </select>
+                    </div>
+                    <div>
+                        <span asp-validation-for="userinfo.CountryId" class="text-danger"></span>
+                    </div>
+                </div>
+                <input type="hidden" asp-for="userinfo.Id" hidden />
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+        <div class="col">
+            <p>Please create your profile. This is just a <strong>sample application</strong> so you can put whatever you
+            wish in the first name and last name boxes. </p>
+            <p>You need to Save your profile information before you can create projects and tasks.</p>
+        </div>
+    </div>
+</div>

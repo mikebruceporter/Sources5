@@ -1,0 +1,69 @@
+﻿body {
+    padding-bottom: 10px;
+}
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+.bg-dark-mike {
+    background-color: rgb(64,64,60) 
+    /* custom color is used in the nav bar */
+}
+/* --------------------------------------------------------- */
+/*       Project Form  ProjectForm2.cshtml                   */
+/* --------------------------------------------------------- */
+.project-form-container {
+/*    Views/Project/ProjectForm2.cshtml   */
+    display: flex;
+}
+.project-form-item-1 {
+    flex: 2;
+}
+.project-form-item-2 {
+    flex: 1;
+}
+/* ---------------------------------------------------------- */
+/*        Project Task Form    ProjectTaskForm2.cshtml        */
+/* ---------------------------------------------------------- */
+.project-task-form-column-layout {
+    margin: 10px auto 10px auto;
+    display: flex;
+    align-items: stretch;  
+    justify-content: space-between;
+}
+.project-task-form-main-column {
+    padding: 10px;
+    background-color: lightgray;
+    box-sizing: border-box;
+    /*  flex: 4; */
+    order: 2;
+    flex-basis: 40%;
+}
+project-task-form-sidebar-left {
+    padding: 30px;
+    box-sizing: border-box;
+    /* flex: 1; */
+    order: 1;
+    flex-basis: 20%;
+}
+.project-task-form-sidebar-right {
+    padding: 10px;
+    box-sizing: border-box;
+    /* flex: 1; */
+    order: 3;
+    flex-basis: 20%;
+}
+

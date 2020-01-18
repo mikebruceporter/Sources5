@@ -1,0 +1,34 @@
+﻿@model UserInfoFormViewModel
+@{ 
+    ViewData["Title"] = "Profile";
+}
+<div class="d-flex mt-2 mb-2">
+@* this is just for some spacing... there should be a better way *@
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Welcome</h2>
+            <p>@Model.userinfo.FirstName @Model.userinfo.LastName</p>
+            <p>SIN: @Model.userinfo.SIN</p>
+            <p>Country: @Model.userinfo.Country.Name</p>
+            <a asp-controller="UserInfo" asp-action="Edit" class="btn btn-primary">Edit Your Profile</a>
+            <p>This could be a form HttpPost...we can pass the user info Id</p>
+            <hr />
+        </div>
+        <div class="col">
+            <h4>Projects</h4>
+            <p>You can create as many projects as you like. Each project has:</p>
+            <ul>
+                <li>Name</li>
+                <li>Description</li>
+                <li>Start Date</li>
+                <li>End Date</li>
+            </ul>
+            <p>Each project has a list of it's own tasks. You can add as many tasks as you need to each project.</p>
+            <a asp-controller="Project" asp-action="Index" class="btn btn-primary">Project List</a>
+            <a asp-controller="Project" asp-action="Create" class="btn btn-primary">Create New Project</a>
+        </div>
+    </div>
+</div>
+
