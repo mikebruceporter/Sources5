@@ -26,13 +26,17 @@
 /*       Project Form  ProjectForm2.cshtml                   */
 /* --------------------------------------------------------- */
 .project-form-container {
-/*    Views/Project/ProjectForm2.cshtml   */
+    /*    Views/Project/ProjectForm2.cshtml   */
+    margin: 10px auto 10px auto;
     display: flex;
 }
 .project-form-item-1 {
-    flex: 2;
+    padding: 10px;
+    background-color: lightgray;
+    flex: 3;
 }
 .project-form-item-2 {
+    padding: 10px;
     flex: 1;
 }
 /* ---------------------------------------------------------- */
